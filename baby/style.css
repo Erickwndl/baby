@@ -1,0 +1,431 @@
+/* =====================
+    Variáveis de cores
+    ===================== */
+    :root {
+        /* Tons principais */
+        --cor-primaria: #6b4f3b;
+        --cor-secundaria: #a47551;
+        --cor-card: #ffffff;
+        --sombra: rgba(0, 0, 0, 0.08);
+      
+        /* Tons de fundo por section */
+        --fundo-geral: #f5f2ed;
+        --fundo-perfil: #f4efe9; /* Seção inicial */
+        --fundo-conquistas: #f8f5f1;
+        --fundo-momentos: #f3ede6; 
+      
+        /* Detalhes */
+        --cor-detalhe: #d8c8b8;
+        }
+      
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Arial', sans-serif;
+        background: var(--fundo-geral);
+        color: var(--cor-primaria);
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+      }
+      
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #e8ded2cc; /* semi-transparente */
+        backdrop-filter: blur(6px);
+        padding: 1rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar img { 
+        width: 15%;
+
+      }
+      
+      .logo {
+        font-size: 1.7rem;
+        
+        color: var(--cor-primaria);
+      }
+      
+      .menu {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+      }
+      
+      .menu a {
+        text-decoration: none;
+        color: var(--cor-primaria);
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+      
+      .menu a:hover {
+        color: var(--cor-secundaria);
+      }
+      
+      /* Fundo interativo animado */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 20% 20%, #fff5e1, transparent 40%),
+                    radial-gradient(circle at 80% 30%, #e8ded2, transparent 40%),
+                    radial-gradient(circle at 50% 80%, #f3ebe3, transparent 50%);
+        animation: fundoMove 25s linear infinite;
+        z-index: -1;
+      }
+      
+      @keyframes fundoMove {
+        0% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(-5%, -5%) scale(1.05); }
+        100% { transform: translate(0, 0) scale(1); }
+      }
+      
+      /* Sections com tons diferentes */
+      section {
+        padding: 4rem 2rem;
+        min-height: calc(100vh - 80px); /* Ajuste para preencher a tela */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      #perfil {
+        background: var(--fundo-perfil); 
+      }
+      
+      #conquistas {
+        background: var(--fundo-conquistas);
+      }
+    
+      #momentos { 
+        background: var(--fundo-momentos);
+      }
+      
+      /* Perfil */
+      .perfil-container {
+        background: var(--cor-card);
+        border-radius: 20px;
+        padding: 2rem;
+        max-width: 500px;
+        box-shadow: 0 8px 20px var(--sombra);
+        text-align: center;
+        width: 100%; /* Para centralizar melhor */
+      }
+    
+      .perfil-img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+      }
+    
+      /* NOVOS Estilos de Boas-Vindas (Dentro do Perfil) */
+      .welcome-subtitle {
+          font-size: 1.25rem;
+          color: var(--cor-secundaria);
+          font-weight: 600;
+          margin-top: 0.5rem;
+      }
+      .welcome-intro {
+          font-style: italic;
+          font-size: 1rem;
+          color: #8b6b55;
+          margin-top: 0.5rem;
+          margin-bottom: 1.5rem; /* Espaço antes dos contadores */
+          border-bottom: 1px dashed var(--cor-detalhe);
+          padding-bottom: 1.5rem;
+      }
+    
+      /* Grid de Contadores Organizado */
+      .contadores-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
+        gap: 1rem;
+        margin-bottom: 1rem; /* Ajustado */
+      }
+      
+      .contador-item {
+        background: #fdf9f4; /* Um fundo suave */
+        padding: 1rem;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--cor-detalhe);
+      }
+      
+      .contador-valor {
+        font-size: 1.5rem; /* Tamanho maior para o número */
+        font-weight: bold;
+        color: var(--cor-secundaria);
+        line-height: 1.2;
+      }
+      
+      .contador-label {
+        font-size: 0.85rem;
+        color: #8b6b55;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 0.25rem;
+      }
+    
+      /* Estilo para "sem" e "dias" dentro do contador-valor */
+      .contador-label-inline {
+        font-size: 0.9rem;
+        font-weight: normal;
+        color: #a47551; 
+        text-transform: none;
+        letter-spacing: 0;
+        margin-left: 2px;
+      }
+    
+      .info-principal {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: var(--cor-primaria);
+        margin-top: 0.5rem;
+      }
+      
+      .info-secundaria {
+        font-size: 0.95rem;
+        color: #8b6b55;
+        font-style: italic;
+        margin-top: 0.25rem; /* Menor margem */
+      }
+      
+      .tamanho-bebe {
+        margin-top: 1.5rem;
+        background: #fdf9f4;
+        padding: 1rem;
+        border-radius: 10px;
+        font-style: italic;
+        color: #8b6b55;
+      }
+      
+      /* Conquistas */
+      .conquistas h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--cor-primaria);
+        font-size: 2.5rem;
+      }
+      
+      .conquistas-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        max-width: 1000px;
+        width: 100%;
+      }
+      
+      .conquista-card {
+        background: var(--cor-card);
+        border-radius: 12px;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 6px 15px var(--sombra);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      
+      .conquista-card img {
+        width: 100%;
+        height: 200px; 
+        object-fit: cover; 
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+      }
+      
+      .conquista-card p {
+        font-weight: bold;
+        color: var(--cor-primaria);
+      }
+    
+      .conquista-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      }
+    
+      /* Momentos (Seção Instagram) */
+      .momentos h2 {
+        text-align: center;
+        margin-bottom: 2.5rem;
+        color: var(--cor-primaria);
+        font-size: 2.5rem;
+      }
+    
+      .momentos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+        gap: 2.5rem;
+        max-width: 1200px;
+        width: 100%;
+        justify-content: center;
+      }
+    
+      .momento-card {
+        background: var(--cor-card);
+        border-radius: 15px;
+        box-shadow: 0 8px 20px var(--sombra);
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+      }
+    
+      .momento-card:hover {
+        transform: translateY(-8px);
+      }
+    
+      .momento-card img {
+        width: 100%;
+        height: 300px; 
+        object-fit: cover;
+        display: block;
+        border-bottom: 1px solid #eee;
+      }
+    
+      .momento-caption {
+        padding: 1rem;
+        font-style: italic;
+        color: #8b6b55;
+        border-bottom: 1px solid #eee;
+      }
+    
+      .comentarios-section {
+        padding: 1rem;
+      }
+    
+      .comentarios-section h4 {
+        color: var(--cor-secundaria);
+        margin-bottom: 0.8rem;
+        border-bottom: 1px dashed #eee;
+        padding-bottom: 0.5rem;
+      }
+    
+      .comentarios-lista {
+        list-style: none;
+        margin-bottom: 1rem;
+        max-height: 150px; 
+        overflow-y: auto; 
+        padding-right: 5px;
+      }
+    
+      .comentarios-lista li {
+        background: #fdf9f4;
+        padding: 0.5rem 0.8rem;
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: #6b4f3b;
+        word-wrap: break-word; /* Garante que comentários longos quebrem a linha */
+      }
+    
+      .comentarios-lista li strong {
+        color: var(--cor-primaria);
+        margin-right: 5px;
+      }
+    
+      .comentario-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+    
+      .comentario-form input[type="text"],
+      .comentario-form textarea {
+        padding: 0.7rem;
+        border: 1px solid var(--cor-detalhe);
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        color: var(--cor-primaria);
+        background: #fefdfb;
+      }
+    
+      .comentario-form textarea {
+        resize: vertical;
+        min-height: 60px;
+      }
+    
+      .comentario-form button {
+        background: var(--cor-secundaria);
+        color: var(--cor-card);
+        border: none;
+        padding: 0.8rem 1.2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+    
+      .comentario-form button:hover {
+        background: #8e6545;
+      }
+    
+      /* Responsividade */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          padding: 1rem;
+        }
+    
+        .menu {
+          margin-top: 1rem;
+          gap: 1rem;
+        }
+    
+        .conquistas-grid,
+        .momentos-grid {
+          grid-template-columns: 1fr;
+        }
+    
+        section {
+          padding: 3rem 1rem;
+          min-height: auto;
+        }
+    
+        .conquistas h2, .momentos h2 {
+          font-size: 2rem;
+        }
+      }
+    
+      @media (max-width: 480px) {
+        .logo {
+          font-size: 1.2rem;
+        }
+        .menu a {
+          font-size: 0.9rem;
+        }
+        .perfil-container {
+          padding: 1.5rem;
+        }
+        .perfil-img {
+          width: 120px;
+          height: 120px;
+        }
+        /* Garante que os contadores fiquem legíveis */
+        .contadores-grid {
+            grid-template-columns: 1fr;
+        }
+        .contador-valor {
+            font-size: 1.4rem;
+        }
+      }
